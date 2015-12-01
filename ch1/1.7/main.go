@@ -26,6 +26,7 @@ func main() {
 			os.Exit(1)
 		}
 		_, err = io.Copy(os.Stdout, resp.Body)
+		resp.Body.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Fetch: Copying %v\n", err)
 			os.Exit(1)
